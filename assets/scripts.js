@@ -11,12 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // get user input from form
         const inputName = document.querySelector("#inputName").value
+        const inputCountry = document.querySelector("#inputCountry").value
 
         // define function to make api call
         function agify() {
-            
+
             // insert user input into url call
-            const url = `https://api.agify.io?name=${inputName}`
+            const url = `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`
         
             // make api call see 
             // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
