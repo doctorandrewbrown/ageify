@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const inputName = document.querySelector("#inputName").value
         const inputCountry = document.querySelector("#inputCountry").value
 
-        // define function to make api call
+        // declare empty object for data returned by api
+        let apiData
+
+        // define function to call ageify api
         function agify() {
 
             // insert user input into url call
@@ -27,12 +30,42 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json();
                 })
                 .then((data) => {
-        
+                    let ageData = data
+
+                    apiData = {...apiData, ...ageData}
                     // log response object to console to test functionality
-                    console.log(data)
+                    console.log(apiData)
                 })
         }
-        agify()
+        // define function to call genderize api
+
+        function genderize() {
+
+            // insert user input into url call
+            const url = `https://api.genderize.io?name=${inputName}&country_id=${inputCountry}`
+        
+            // make api call see 
+            // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
+        
+            fetch(url)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    let genderData = data
+                    apiData = {...apiData, ...genderData}
+
+                    // log response object to console to test functionality
+
+                    console.log(apiData)
+                })
+            
+        }
+    
+    // call functions
+    agify()
+    genderize()
+    
     })
 })
 
