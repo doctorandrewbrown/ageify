@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const inputCountry = document.querySelector("#inputCountry").value
 
         // declare empty object for data returned by api
-        let apiData
+        let apiData = "hello"
 
         // define function to call ageify api
         function agify() {
@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // call functions
     agify()
     genderize()
+    console.log(apiData)
     
     })
 })
