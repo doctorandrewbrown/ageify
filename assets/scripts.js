@@ -32,9 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 .then((data) => {
                     let ageData = data
 
+                    // put api age data response into apiData object using spread operator
+
                     apiData = {...apiData, ...ageData}
+
                     // log response object to console to test functionality
-                    console.log(apiData)
+                    console.log("agify")
+
                 })
         }
         // define function to call genderize api
@@ -53,13 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then((data) => {
                     let genderData = data
+
+                    // put api gender data response into apiData object using spread operator
+
                     apiData = {...apiData, ...genderData}
 
                     // log response object to console to test functionality
 
-                    console.log(apiData)
+                    console.log("genderize")
+                    
                 })
-            
+                .then(()=> {
+                    console.log(apiData.age, apiData.gender)
+                })
         }
     
     // call functions
