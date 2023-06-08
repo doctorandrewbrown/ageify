@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // log response object to console to test functionality
                     console.log(apiData)
-
                 })
         }
         // define function to call genderize api
@@ -70,15 +69,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     // log response object to console to test functionality
 
                     console.log("genderize")
-
                 })
                 // results data only logged after api data received
                 .then(() => {
                     console.log(apiData)
-                    
+                    // create list element
+                    const record = document.createElement("li")
+
+                    // insert api data in list for display
+                    record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}.`
+
+                    // append api data to list in user interface
+                    const list = document.querySelector("#records")
+                    list.append(record)
                 })
         }
-
         // call functions
         agify()
         genderize()
