@@ -1,4 +1,3 @@
-
 // wait for DOM to load before getting any element
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -14,17 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const inputCountry = document.querySelector("#inputCountry").value
 
         // declare empty object for data returned by api
-        let apiData = "hello"
+        let apiData
 
         // define function to call ageify api
         function agify() {
 
             // insert user input into url call
             const url = `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`
-        
+
             // make api call see 
             // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
-        
+
             fetch(url)
                 .then((response) => {
                     return response.json();
@@ -34,10 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // put api age data response into apiData object using spread operator
 
-                    apiData = {...apiData, ...ageData}
+                    apiData = {
+                        ...apiData,
+                        ...ageData
+                    }
 
                     // log response object to console to test functionality
-                    console.log("agify")
+                    console.log(apiData)
 
                 })
         }
@@ -47,10 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // insert user input into url call
             const url = `https://api.genderize.io?name=${inputName}&country_id=${inputCountry}`
-        
+
             // make api call see 
             // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
-        
+
             fetch(url)
                 .then((response) => {
                     return response.json();
@@ -60,23 +62,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // put api gender data response into apiData object using spread operator
 
-                    apiData = {...apiData, ...genderData}
+                    apiData = {
+                        ...apiData,
+                        ...genderData
+                    }
 
                     // log response object to console to test functionality
 
                     console.log("genderize")
+
+                })
+                // results data only logged after api data received
+                .then(() => {
+                    console.log(apiData)
                     
                 })
-                .then(()=> {
-                    console.log(apiData.age, apiData.gender)
-                })
         }
-    
-    // call functions
-    agify()
-    genderize()
-    console.log(apiData)
-    
+
+        // call functions
+        agify()
+        genderize()
     })
 })
-
