@@ -17,6 +17,41 @@ document.addEventListener("DOMContentLoaded", () => {
         // declare empty object for data returned by api
         //let apiData
 
+        // call functions
+        agify()
+        genderize()
+    })
+})
+
+// define function to call ageify apifunction test_warning(){
+function agify() {
+
+    // insert user input into url call
+    const url = `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`
+    console.log(inputName)
+    // make api call see 
+    // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
+
+    fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let ageData = data
+
+            // put api age data response into apiData object using spread operator
+
+            apiData = {
+                ...apiData,
+                ...ageData
+            }
+
+            // log response object to console to test functionality
+            console.log("ageify")
+
+            console.log(apiData)
+        })
+}
         // define function to call genderize api
 
         function genderize() {
@@ -65,39 +100,4 @@ document.addEventListener("DOMContentLoaded", () => {
                     list.append(record)
                 })
         }
-        // call functions
-        agify()
-        genderize()
-    })
-})
-
-// define function to call ageify apifunction test_warning(){
-function agify() {
-
-    // insert user input into url call
-    const url = `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`
-    console.log(inputName)
-    // make api call see 
-    // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
-
-    fetch(url)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let ageData = data
-
-            // put api age data response into apiData object using spread operator
-
-            apiData = {
-                ...apiData,
-                ...ageData
-            }
-
-            // log response object to console to test functionality
-            console.log("ageify")
-
-            console.log(apiData)
-        })
-}
 
