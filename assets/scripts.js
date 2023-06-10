@@ -19,12 +19,29 @@ document.addEventListener("DOMContentLoaded", () => {
         inputName = document.querySelector("#firstName").value
         inputCountry = document.querySelector("#country").value
 
-        // call function to call api
-        agify()
+        function getData(cb) {
+            var xhttp = new XMLHttpRequest();
+        
+            xhttp.open("GET", `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`);
+            xhttp.send();
+        
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    cb(JSON.parse(this.responseText));
+                }
+            };
+        }
+        
+        function printData(data) {
+            console.log(data);
+        }
+        
+        getData(printData);
     })
 })
 
-// define function to call ageify api
+/*/ define function to call ageify api
+
 function agify() {
     console.log("ageify")
     // insert user input into url call
