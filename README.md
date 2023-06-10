@@ -37,3 +37,4 @@ fetch(url)
     console.log(apiData)
     
 ```
+![screenshot](MS2/documentation/undefined-age-bug.png)
