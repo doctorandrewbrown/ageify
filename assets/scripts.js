@@ -1,13 +1,13 @@
 // declare variables globally
-
 let inputName
 let inputCountry
 
-// empty object to receive api data
+// declare empty object to receive api data
 let apiData
 
 // wait for DOM to load before getting any element
 document.addEventListener("DOMContentLoaded", () => {
+
     // grab form element
     const form = document.querySelector("form")
 
@@ -19,13 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
         inputName = document.querySelector("#firstName").value
         inputCountry = document.querySelector("#country").value
 
-        getAgeData(display);
+        // start main program
+        getAgeData(() => getGenderData(display))
     })
 })
 
+/* function definitions */
+
 // define function to call agify api
 function getAgeData(cb) {
-
+    console.log("getAgeData")
     // declare request object
     var xhttp = new XMLHttpRequest();
 
@@ -34,12 +37,11 @@ function getAgeData(cb) {
     xhttp.send();
 
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState)
-
+        
         // check if api data received
         if (this.readyState == 4 && this.status == 200) {
 
-            // put api response into json format
+            // put api response into json format once data received from api
             let ageData = JSON.parse(this.responseText)
 
             // update results object
@@ -49,14 +51,14 @@ function getAgeData(cb) {
             }
 
             // call callback function
-            cb();
+            cb()
         }
     };
 }
 
 // define function to call genderize api
 function getGenderData(cb) {
-
+    console.log("getGenderData")
     // declare request object
     var xhttp = new XMLHttpRequest();
 
@@ -65,7 +67,6 @@ function getGenderData(cb) {
     xhttp.send();
 
     xhttp.onreadystatechange = function() {
-        console.log(this.readyState)
 
         // check if api data received
         if (this.readyState == 4 && this.status == 200) {
@@ -79,93 +80,24 @@ function getGenderData(cb) {
                 ...genderData
             }
 
-            // call callback function
-            cb();
+            // call callback function to display results on user interface
+            cb()
         }
-    };
+    }
 }
 
 // define function to display results on user interface
 
 function display(){
-    console.log("display")
-    // log combined data object
     console.log(apiData)
-
     // create list element
     const record = document.createElement("li")
 
     // insert api data in list for display
-    record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, count: ${apiData.count}, country: ${apiData.country_id}.`
+    record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
+    probability: ${apiData.probability}, count: ${apiData.count}, country: ${apiData.country_id}.`
 
     // append api data to list in user interface
     const list = document.querySelector("#records")
     list.append(record)
 }
-
-
-
-
-
-
-/*/ define function to call ageify api
-
-function agify() {
-    console.log("ageify")
-    // insert user input into url call
-    const url = `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`
-    console.log(inputName)
-
-    // make api call see 
-    // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
-
-    fetch(url)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let ageData = data
-
-            // put api age data response into apiData object using spread operator
-
-            apiData = {
-                ...apiData,
-                ...ageData
-            }
-            console.log(apiData)
-            display()
-        })
-        //.then(display())
-}
-// define function to call genderize api
-
-/*function genderize() {
-
-    // insert user input into url call
-    const url = `https://api.genderize.io?name=${inputName}&country_id=${inputCountry}`
-    console.log(inputName)
-
-    // make api call see 
-    // https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
-
-    fetch(url)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let genderData = data
-
-            // put api gender data response into apiData object using spread operator
-
-            apiData = {
-                ...apiData,
-                ...genderData
-            }
-
-            // log response object to console to test functionality
-
-            console.log("genderize")
-            console.log(apiData)
-
-        })
-}*/
