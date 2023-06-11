@@ -54,6 +54,37 @@ function getAgeData(cb) {
     };
 }
 
+// define function to call genderize api
+function getGenderData(cb) {
+
+    // declare request object
+    var xhttp = new XMLHttpRequest();
+
+    // insert user input in api url
+    xhttp.open("GET", `https://api.genderize.io?name=${inputName}&country_id=${inputCountry}`);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function() {
+        console.log(this.readyState)
+
+        // check if api data received
+        if (this.readyState == 4 && this.status == 200) {
+
+            // put api response into json format
+            let genderData = JSON.parse(this.responseText)
+
+            // update results object
+            apiData = {
+                ...apiData,
+                ...genderData
+            }
+
+            // call callback function
+            cb();
+        }
+    };
+}
+
 // define function to display results on user interface
 
 function display(){
