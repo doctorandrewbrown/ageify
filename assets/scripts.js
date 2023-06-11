@@ -19,26 +19,63 @@ document.addEventListener("DOMContentLoaded", () => {
         inputName = document.querySelector("#firstName").value
         inputCountry = document.querySelector("#country").value
 
-        function getData(cb) {
-            var xhttp = new XMLHttpRequest();
-        
-            xhttp.open("GET", `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`);
-            xhttp.send();
-        
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    cb(JSON.parse(this.responseText));
-                }
-            };
-        }
-        
-        function printData(data) {
-            console.log(data);
-        }
-        
-        getData(printData);
+        getAgeData(display);
     })
 })
+
+// define function to call agify api
+function getAgeData(cb) {
+
+    // declare request object
+    var xhttp = new XMLHttpRequest();
+
+    // insert user input in api url
+    xhttp.open("GET", `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`);
+    xhttp.send();
+
+    xhttp.onreadystatechange = function() {
+        console.log(this.readyState)
+
+        // check if api data received
+        if (this.readyState == 4 && this.status == 200) {
+
+            // put api response into json format
+            let ageData = JSON.parse(this.responseText)
+
+            // update results object
+            apiData = {
+                ...apiData,
+                ...ageData
+            }
+
+            // call callback function
+            cb();
+        }
+    };
+}
+
+// define function to display results on user interface
+
+function display(){
+    console.log("display")
+    // log combined data object
+    console.log(apiData)
+
+    // create list element
+    const record = document.createElement("li")
+
+    // insert api data in list for display
+    record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, count: ${apiData.count}, country: ${apiData.country_id}.`
+
+    // append api data to list in user interface
+    const list = document.querySelector("#records")
+    list.append(record)
+}
+
+
+
+
+
 
 /*/ define function to call ageify api
 
@@ -101,18 +138,3 @@ function agify() {
 
         })
 }*/
-function display(){
-    console.log("display")
-    // log combined data object
-    console.log(apiData)
-
-    // create list element
-    const record = document.createElement("li")
-
-    // insert api data in list for display
-    record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, count: ${apiData.count}, country: ${apiData.country_id}.`
-
-    // append api data to list in user interface
-    const list = document.querySelector("#records")
-    list.append(record)
-}
