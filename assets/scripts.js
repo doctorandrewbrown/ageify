@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         inputName = document.querySelector("#firstName").value
         inputCountry = document.querySelector("#country").value
 
-        // start main program
+        /* start main program */
         getAgeData(() => getGenderData(display))
     })
 })
@@ -38,9 +38,10 @@ function getAgeData(cb) {
 
     xhttp.onreadystatechange = function() {
         
-        // check if api data received
-        if (this.readyState == 4 && this.status == 200) {
+        // check if api data received before updating results
 
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttp.status)
             // put api response into json format once data received from api
             let ageData = JSON.parse(this.responseText)
 
@@ -68,9 +69,10 @@ function getGenderData(cb) {
 
     xhttp.onreadystatechange = function() {
 
-        // check if api data received
-        if (this.readyState == 4 && this.status == 200) {
+        // check if api data received before updating results
 
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(xhttp.status)
             // put api response into json format
             let genderData = JSON.parse(this.responseText)
 
