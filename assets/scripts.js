@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // grab form element
     const form = document.querySelector("form")
 
-    // explicitly listen for submit event and prevent this to allow form input data to be grabbed
+    //  listen for submit event and prevent this to allow form input data to be grabbed
     form.addEventListener("submit", (event) => {
         event.preventDefault()
 
-        // get user input from form once DOM loaded
+        // get user input from form once DOM loaded and submit button clicked
         inputName = document.querySelector("#firstName").value
         inputCountry = document.querySelector("#country").value
 
@@ -30,22 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
 function getAgeData(cb) {
     console.log("getAgeData")
     // declare request object
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
 
     // insert user input in api url
     xhttp.open("GET", `https://api.agify.io?name=${inputName}&country_id=${inputCountry}`);
     xhttp.send();
+    xhttp.onreadystatechange = function () {
 
-    xhttp.onreadystatechange = function() {
-        
         // check if api data received before updating results
-
+        // this refers to xhttp object
         if (this.readyState == 4 && this.status == 200) {
             console.log(xhttp.status)
             // put api response into json format once data received from api
             let ageData = JSON.parse(this.responseText)
 
-            // update results object
+            // put age data in results object
             apiData = {
                 ...apiData,
                 ...ageData
@@ -61,13 +60,13 @@ function getAgeData(cb) {
 function getGenderData(cb) {
     console.log("getGenderData")
     // declare request object
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
 
     // insert user input in api url
     xhttp.open("GET", `https://api.genderize.io?name=${inputName}&country_id=${inputCountry}`);
     xhttp.send();
 
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
 
         // check if api data received before updating results
 
@@ -76,7 +75,7 @@ function getGenderData(cb) {
             // put api response into json format
             let genderData = JSON.parse(this.responseText)
 
-            // update results object
+            // put gender data in results object
             apiData = {
                 ...apiData,
                 ...genderData
@@ -90,7 +89,7 @@ function getGenderData(cb) {
 
 // define function to display results on user interface
 
-function display(){
+function display() {
     console.log(apiData)
     // create list element
     const record = document.createElement("li")
