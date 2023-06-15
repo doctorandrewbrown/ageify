@@ -91,16 +91,40 @@ function getGenderData(cb) {
 
 function display() {
 
-    // creates object for getting english names from country codes
-    const regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' });
-    const countryName = regionNamesInEnglish.of(apiData.country_id)
-    
-    // create list element
-    const record = document.createElement("li")
+    // create object for getting english names from country codes. See MDN
+    const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
+        type: 'region'
+    });
 
-    // insert api data in list for display
-    record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
-    probability: ${apiData.probability}, count: ${apiData.count}, country: ${countryName}.<br>`
+    const countryName = regionNamesInEnglish.of(apiData.country_id)
+
+    // create list element
+    let record = document.createElement("li")
+
+    // check data returned by api for missing gender and age data and provide "no data" message to user
+
+    if (apiData.age === null) {
+        apiData.age = "no data"
+    }
+
+    if (apiData.gender === null) {
+        apiData.gender = "no data"
+    }
+    
+    // if no age or gender data returned from api show error message to user
+    if (apiData.age === "no data" && apiData.gender === "no data") {
+    
+        record.innerHTML = "<br> there is no data available for: " + `${inputName}` + " in " + `${countryName}`
+
+    } 
+    // show data to user
+    else {
+
+        // insert api data in list for display
+        record.innerHTML = "<br>" + `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
+    probability: ${apiData.probability}, count: ${apiData.count}, country: ${countryName}.`
+
+    }
 
     // append api data to list in user interface
     const list = document.querySelector("#records")
