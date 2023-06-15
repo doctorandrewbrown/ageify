@@ -1,4 +1,4 @@
-// declare variables globally
+// declare variables for user input
 let inputName
 let inputCountry
 
@@ -38,7 +38,7 @@ function getAgeData(cb) {
     xhttp.onreadystatechange = function () {
 
         // check if api data received before updating results
-        // this refers to xhttp object
+        // this. refers to xhttp object
         if (this.readyState == 4 && this.status == 200) {
             console.log(xhttp.status)
             // put api response into json format once data received from api
@@ -90,13 +90,17 @@ function getGenderData(cb) {
 // define function to display results on user interface
 
 function display() {
-    console.log(apiData)
+
+    // creates object for getting english names from country codes
+    const regionNamesInEnglish = new Intl.DisplayNames(['en'], { type: 'region' });
+    const countryName = regionNamesInEnglish.of(apiData.country_id)
+    
     // create list element
     const record = document.createElement("li")
 
     // insert api data in list for display
     record.innerHTML = `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
-    probability: ${apiData.probability}, count: ${apiData.count}, country: ${apiData.country_id}.`
+    probability: ${apiData.probability}, count: ${apiData.count}, country: ${countryName}.<br>`
 
     // append api data to list in user interface
     const list = document.querySelector("#records")
