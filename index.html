@@ -10,16 +10,17 @@
 </head>
 
 <body>
-    <h1>Agify a Name!</h1>
+    <h1>Agify and Genderize a Name!</h1>
 
     <!--user input form-->
+    
     <form>
-        <label for="firstName">name: </label><br>
-        <input type="text" id="firstName"><br>
-        <label for="country">country: </label><br>
+        <label for="firstName"></label>
+        <input type="text" id="firstName" placeholder="Name" class="input" required>
+        <label for="country"></label>
 
         <!--ISO-3166-1: Alpha-2 Codes html snippet from https://www.freeformatter.com/iso-country-list-html-select.html -->
-        <select id="country">
+        <select id="country" class="input">
             <option value="GB">United Kingdom</option>
             <option value="AF">Afghanistan</option>
             <option value="AX">�land Islands</option>
@@ -270,13 +271,12 @@
             <option value="YE">Yemen</option>
             <option value="ZM">Zambia</option>
             <option value="ZW">Zimbabwe</option>
-        </select><br><br>
-        <input type="submit">
+        </select>
+        <input type="submit" class="input">
     </form>
 
     <!--list to display response data-->
     <ul id="records"></ul>
-    <br>
 </body>
 
 </html>
