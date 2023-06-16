@@ -114,15 +114,16 @@ function display() {
     // if no age or gender data returned from api show error message to user
     if (apiData.age === "no data" && apiData.gender === "no data") {
     
-        record.innerHTML = "<br> there is no data available for: " + `${inputName}` + " in " + `${countryName}`
+        record.innerHTML = " There is no data available for " + `${inputName}` + " in " + `${countryName}`
+        record.style.color = "red"
 
     } 
-    // show data to user
-    else {
 
+    // show result data to user
+    else {
         // insert api data in list for display
-        record.innerHTML = "<br>" + `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
-    probability: ${apiData.probability}, count: ${apiData.count}, country: ${countryName}.`
+        record.innerHTML =  `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
+    probability of gender: ${apiData.probability}, gender count: ${apiData.count}, country: ${countryName}.`
 
     }
 
