@@ -1,3 +1,32 @@
-#records{
-    list-style:none;
+body {
+    background-color: #e20ea2;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#records {
+    list-style: none;
+}
+
+.input {
+    color: rgb(5, 5, 5);
+    background-color: #4dd6ee;
+    border-radius: 10px;
+    padding: 10px;
+    border: 0;
+    /*box-shadow:0 0 15px 4px rgba(64, 17, 236, 0.09);*/
+    margin: 10px;
+    /*width: 300px;*/
+}
+
+li {
+    background-color: #4dd6ee;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    justify-items : center;
+}
+
+ul {
+    padding: 0;
 }
