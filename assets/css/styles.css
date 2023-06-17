@@ -1,6 +1,6 @@
 /* link to palette https://colorhunt.co/palette/fff2ccffd966f4b183dfa67b */
 body {
-    color: #FFD966;
+    color: #000;
     background-color: #F4B183;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,7 +11,7 @@ body {
 }
 
 .input {
-    color: rgb(5, 5, 5);
+    color: #000;
     background-color: #FFF2CC;
     border-radius: 20px;
     
@@ -26,4 +26,8 @@ li {
 }
 ul{
     padding: 0;
+}
+#submitButton {
+    background-color: #DFA67B;
+    background-color: #DFA67B;
 }
