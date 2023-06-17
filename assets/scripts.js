@@ -85,7 +85,7 @@ function getGenderData(cb) {
             cb()
         }
     }
-}list.classList.add("mt-3")
+}
 
 // define function to display results on user interface
 
@@ -101,8 +101,9 @@ function display() {
     // create list element
     let record = document.createElement("li")
     
-    // add bootstrap class to li elements for spacing records in user interface
-    record.classList.add("mt-3")
+    // add bootstrap class to li elements for spacing results records in user interface
+    // https://stackoverflow.com/questions/74132721/bootstrap-5-center-text-in-li
+    record.classList.add("mt-3", "d-flex", "align-items-center")
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
     if (apiData.age === null) {
@@ -124,8 +125,7 @@ function display() {
     // show result data to user
     else {
         // insert api data in list for display
-        record.innerHTML =  `name: ${apiData.name}, age: ${apiData.age}, gender: ${apiData.gender}, 
-    probability of gender: ${apiData.probability}, gender count: ${apiData.count}, country: ${countryName}.`
+        record.innerHTML =  `name: ${apiData.name}; country: ${countryName}; average age: ${apiData.age}; gender: ${apiData.gender}; probability ${apiData.probability}; gender count: ${apiData.count}.`
 
     }
 
