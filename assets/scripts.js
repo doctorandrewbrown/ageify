@@ -85,7 +85,7 @@ function getGenderData(cb) {
             cb()
         }
     }
-}
+}list.classList.add("mt-3")
 
 // define function to display results on user interface
 
@@ -100,9 +100,11 @@ function display() {
 
     // create list element
     let record = document.createElement("li")
+    
+    // add bootstrap class to li elements for spacing records in user interface
+    record.classList.add("mt-3")
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
-
     if (apiData.age === null) {
         apiData.age = "no data"
     }
