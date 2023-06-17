@@ -1,5 +1,7 @@
+/* link to palette https://colorhunt.co/palette/fff2ccffd966f4b183dfa67b */
 body {
-    background-color: #e20ea2;
+    color: #FFD966;
+    background-color: #F4B183;
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -10,23 +12,18 @@ body {
 
 .input {
     color: rgb(5, 5, 5);
-    background-color: #4dd6ee;
-    border-radius: 10px;
-    padding: 10px;
-    border: 0;
-    /*box-shadow:0 0 15px 4px rgba(64, 17, 236, 0.09);*/
-    margin: 10px;
-    /*width: 300px;*/
+    background-color: #FFF2CC;
+    border-radius: 20px;
+    
 }
 
 li {
-    background-color: #4dd6ee;
-    border-radius: 10px;
+    background-color: #DFA67B;
+    border-radius: 20px;
     padding: 10px;
-    margin: 10px;
-    justify-items : center;
+    justify-content: center;
+    width: 100%;
 }
-
-ul {
+ul{
     padding: 0;
 }
