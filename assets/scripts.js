@@ -1,9 +1,10 @@
+/* jshint esversion: 11 */
 // declare variables for user input
 let inputName;
 let inputCountry;
 
 // declare new empty object to receive api data
-let apiData = new Object;
+let apiData = new Object();
 
 // wait for DOM to load before getting any element
 document.addEventListener("DOMContentLoaded", () => {
