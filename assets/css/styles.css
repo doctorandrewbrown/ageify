@@ -15,6 +15,7 @@ body {
     background-color: #FFF2CC;
     border-radius: 20px;
     
+    
 }
 
 li {
@@ -29,5 +30,5 @@ ul{
 }
 #submitButton {
     background-color: #DFA67B;
-    background-color: #DFA67B;
+    border-color: #DFA67B;
 }
