@@ -109,7 +109,17 @@ function display() {
     record.classList.add("mt-3", "d-flex", "align-items-center");
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
-    if (apiData.age) {
+    if (apiData.age === <ul class="nav nav-tabs  ">
+        <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">Active</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link">Link</a>
+        </li>
+        <li class="nav-item disabled">
+            <a href="#" class="nav-link">Disabled</a>
+        </li>
+    </ul>) {
         apiData.age = "no data"
     }
 
