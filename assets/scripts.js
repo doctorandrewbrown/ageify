@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         /* start main program */
         getAgeData(getGenderData);
-    })
-})
+    });
+});
 
 /* function definitions */
 
@@ -53,9 +53,9 @@ function getAgeData(cb) {
 
             // call callback function getGenderData and pass display function
             cb(display);
-        }
+        };
     };
-}
+};
 
 // define function to call genderize api
 function getGenderData(cb) {
@@ -76,13 +76,13 @@ function getGenderData(cb) {
             // put api response into json format
             let genderData = JSON.parse(this.responseText);
             // rename count data to gender_count to prevent overwriting when data from apis is merged
-            const genderCount = genderData.count
-            apiData.gender_count = genderCount
+            const genderCount = genderData.count;
+            apiData.gender_count = genderCount;
             // put gender data in results object
             apiData = {
                 ...apiData,
                 ...genderData
-            }
+            };
 
             // callback function display() to display results on user interface
             cb();
@@ -110,12 +110,12 @@ function display() {
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
     if (apiData.age === null){
-        apiData.age = "no data"
-    }
+        apiData.age = "no data";
+    };
 
     if (apiData.gender === null) {
-        apiData.gender = "no data"
-    }
+        apiData.gender = "no data";
+    };
 
     // if no age or gender data returned from api show error message to user
     if (apiData.age === "no data" && apiData.gender === "no data") {
@@ -128,11 +128,9 @@ function display() {
     // show result data to user
     else {
         // insert api data in list for display
-        record.innerHTML = `name: ${apiData.name}; country: ${countryName}; average age: ${apiData.age}; gender: ${apiData.gender}; probability ${apiData.probability}; gender count: ${apiData.count}.`
-
-    }
-
+        record.innerHTML = `name: ${apiData.name}; country: ${countryName}; average age: ${apiData.age}; gender: ${apiData.gender}; probability ${apiData.probability}; gender count: ${apiData.count}.`;
+    };
     // append api data to list in user interface
     const list = document.querySelector("#records");
     list.append(record);
-}
+};
