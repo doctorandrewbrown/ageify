@@ -28,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // define function to call agify api
 function getAgeData(cb) {
-    console.log("getAgeData");
     // declare request object
     const xhttp = new XMLHttpRequest();
 
@@ -42,11 +41,9 @@ function getAgeData(cb) {
         if (this.readyState == 4 && this.status == 200) {
             // put api response into json format once data received from api
             let ageData = JSON.parse(this.responseText);
-            console.log(ageData)
             // rename count data to age_count to prevent overwriting when data from apis is merged
             const ageCount = ageData.count
             apiData.age_count = ageCount
-            console.log(apiData)
             // put age data in results object
             apiData = {
                 ...apiData,
@@ -77,11 +74,9 @@ function getGenderData(cb) {
         
             // put api response into json format
             let genderData = JSON.parse(this.responseText);
-            console.log(genderData);
             // rename count data to gender_count to prevent overwriting when data from apis is merged
             const genderCount = genderData.count
             apiData.gender_count = genderCount
-            console.log(apiData)
             // put gender data in results object
             apiData = {
                 ...apiData,
@@ -97,7 +92,6 @@ function getGenderData(cb) {
 // define function to display results on user interface
 
 function display() {
-    console.log(apiData);
 
     // create object for getting english names from country codes. See MDN
     const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
@@ -114,7 +108,7 @@ function display() {
     record.classList.add("mt-3", "d-flex", "align-items-center");
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
-    if (apiData.age === null) {
+    if (apiData.age) {
         apiData.age = "no data"
     }
 
