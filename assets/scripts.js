@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         inputCountry = document.querySelector("#country").value
 
         /* start main program */
-        getAgeData(() => getGenderData(display))
+        getAgeData(getGenderData)
     })
 })
 
@@ -50,15 +50,15 @@ function getAgeData(cb) {
                 ...ageData
             }
 
-            // call callback function
-            cb()
+            // call callback function getGenderData and pass display function
+            cb(display)
         }
     };
 }
 
 // define function to call genderize api
 function getGenderData(cb) {
-    console.log("getGenderData")
+
     // declare request object
     const xhttp = new XMLHttpRequest();
 
@@ -74,14 +74,14 @@ function getGenderData(cb) {
             console.log(xhttp.status)
             // put api response into json format
             let genderData = JSON.parse(this.responseText)
-
+            console.log(genderData)
             // put gender data in results object
             apiData = {
                 ...apiData,
                 ...genderData
             }
 
-            // call callback function to display results on user interface
+            // call callback function display() to display results on user interface
             cb()
         }
     }
@@ -90,6 +90,7 @@ function getGenderData(cb) {
 // define function to display results on user interface
 
 function display() {
+    console.log(apiData)
 
     // create object for getting english names from country codes. See MDN
     const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
