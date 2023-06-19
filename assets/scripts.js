@@ -1,5 +1,6 @@
 /* jshint esversion: 11 */
 // declare variables for user input
+
 let inputName;
 let inputCountry;
 
@@ -40,11 +41,14 @@ function getAgeData(cb) {
         // check if api data received before updating results
         // this. refers to xhttp object
         if (this.readyState == 4 && this.status == 200) {
+
             // put api response into json format once data received from api
             let ageData = JSON.parse(this.responseText);
+
             // rename count data to age_count to prevent overwriting when data from apis is merged
             const ageCount = ageData.count
             apiData.age_count = ageCount
+
             // put age data in results object
             apiData = {
                 ...apiData,
@@ -75,6 +79,7 @@ function getGenderData(cb) {
         
             // put api response into json format
             let genderData = JSON.parse(this.responseText);
+
             // rename count data to gender_count to prevent overwriting when data from apis is merged
             const genderCount = genderData.count;
             apiData.gender_count = genderCount;
@@ -97,12 +102,13 @@ function getGenderData(cb) {
 // define function to display results on user interface
 
 function display() {
-    console.log(apiData)
+
     // create object for getting english names from country codes. See MDN
     const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
         type: 'region'
     });
 
+    // get english country name
     const countryName = regionNamesInEnglish.of(apiData.country_id);
 
     // Set value of country_name in results object
@@ -128,13 +134,13 @@ function display() {
     // enforce capitalization of results data
     let capitalized_name = apiData.name[0].toUpperCase() + apiData.name.slice(1);
 
-    // set name in results property to capitalized
+    // set name in results property to capitalized name
     apiData.name = capitalized_name;
 
     // if no age or gender data returned from api show error message to user
     if (apiData.age === "no data" && apiData.gender === "no data") {
 
-        record.innerHTML = " There is no data available for " + `${apiData.name}` + " in " + `${apiData.country_id};`
+        record.innerHTML = " There is no data available for " + `${apiData.name}` + " in " + `${apiData.country_name};`
         record.style.color = "red";
     }
         
@@ -144,7 +150,7 @@ function display() {
         record.innerHTML = `name: ${apiData.name}; country: ${apiData.country_name}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability ${apiData.probability} (based on ${apiData.gender_count} people).`;
     };
 
-    // append api data to list in user interface
+    // append api data to list element in user interface
     const list = document.querySelector("#records");
     list.append(record);
 };
