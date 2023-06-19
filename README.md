@@ -1,106 +1,46 @@
-# AGIFY
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
-In this section, you will include a few paragraphs providing an overview of your project.
-Essentially, this part is your "sales pitch".
+# Agify and Genderize a Name!
 
-At this stage, you should have a name for your project so use it!
-Don't introduce the project as a "portfolio project" for the diploma.
-
-In this section, describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience.
-
-Consider adding a mockup image using the "Am I Responsive" website.
-Here's your deployed site as an example:
-https://ui.dev/amiresponsive?url=https://doctorandrewbrown.github.io/ageify
-
-Screenshots for the README and testing should not be inside of `assets/` or `static/` image folders.
-(reminder: `assets/` and `static/` are for files used on the live site, not documentation)
-Consider adding a new folder called `documentation`, and add the amiresponsive screenshot inside of that folder.
-To add the image into your README, use this format:
-(assuming you have a new folder called `documentation` with an image called "mockup.png")
-
-![screenshot](documentation/mockup.png)
-
-Note: Markdown files (.md) should not contain HTML elements like `img`, `br`, `div`, `a`, etc, only Markdown formatting.
-Find out more about using Markdown elements here:
-https://pandao.github.io/editor.md/en.html
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+[Live site here](https://doctorandrewbrown.github.io/ageify/)
+* This app is called "Agify and Genderize a Name!". The app allows people to enter a name and country and have the average age and the gender for that name in that country to be displayed. 
+* This app allows users interact with two free api services [Ageify](https://agify.io/) and [Genderize](https://genderize.io/)
+* The app provides an HTML/CSS interface and the javascript logic needed for users to consume data provided by the two above free api services. The user enters a name and country and the app sends the user input to the two apis, processes the data returned and presents the results in an attractive interface.
+* Additional data obtained from the apis and available through the app, is the probability of the gender given and the population sizes from which the age and gender statistics are calculated.
+    
+* The site is intended for fun, for people curious about the age group into which a name falls and also the proportion of males and females having certain names. An example use might involve questions like "how many people named Ashley in the UK are male?", for instance.
+  
+* The app allows easy comparison of multiple results presented in a list form in an attractive interface. 
 
 ## UX
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-In this section, you will briefly explain your design processes.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
+* Visual design was kept simple including only the features required to get user input, submit a query and the display results.
+* The only user controls needed were an input field for users to input any name, an input select list to choose from a hard-coded list of countries, and a submit button. This approach allows flexibility and ease of use while keeping errors to a minimum.
+* Simple clear instructions are provided in label elements attached to the input elements.
+* Ease of use is also supported by using placeholder text in input fields.
+* The submit button is clearly indicated and placed in a conventional position.
+* Visual design of the input form uses  convention of "pill" styling to provide an attractive interface.
+* Coherent styling is used to present the results list where the same "pill" styling is used.
+* As well as in the styling and the design of user controls UX is considered in the design of the logic of the app. Javascript is used to ensure that results are presented in the most meaningful way. Cases of missing data and no data returned by the apis are handled by the logic to give the most value to users, with for example informative messages rather than "null" values returned by the apis.  
+  
 
 ### Colour Scheme
+The app colour scheme was based on a palette by [Colorhunt](https://colorhunt.co/palette/fff2ccffd966f4b183dfa67b) shown below,
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+![screenshot](documentation/colorhunt.png)
 
-Explain your colours and the colour scheme.
+- `#000000` used for text colour.
+- `##F4B183` used for site background colour.
+- `#FFF2CC` used for input background colour.
+- `#DFA67B` used for results list and button background colour.
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- `#000000` used for primary text.
-- `#E84610` used for primary highlights.
-- `#4A4A4F` used for secondary text.
-- `#009FE3` used for secondary highlights.
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-Consider adding a link and screenshot for your colour scheme using "coolors".
-https://coolors.co/generate
-
-When you add a colour to the palette, the URL is dynamically updated, making it easier for you to return back to your colour palette later if needed.
-
-Example:
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-I used [coolors.co](https://coolors.co/e84610-009fe3-4a4a4f-445261-d63649-e6ecf0-000000) to generate my colour palette.
-
-![screenshot](documentation/coolors.png)
-
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
-
-If you've used CSS `:root` variables, consider also including a code snippet here!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-I've used CSS `:root` variables to easily update the global colour scheme by changing only one value, instead of everywhere in the CSS file.
-
-```css
-:root {
-    /* P = Primary | S = Secondary */
-    --p-text: #000000;
-    --p-highlight: #E84610;
-    --s-text: #4A4A4F;
-    --s-highlight: #009FE3;
-    --white: #FFFFFF;
-    --black: #000000;
-}
-```
 
 ### Typography
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
 
-Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome.
 
-Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
+- [Barlow](https://fonts.google.com/specimen/Barlow?query=barlow) font was used for all site text.
 
-Example:
 
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## User Stories
 
