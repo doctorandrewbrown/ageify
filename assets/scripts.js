@@ -76,7 +76,7 @@ function getGenderData(cb) {
         // check if api data received before updating results
 
         if (this.readyState == 4 && this.status == 200) {
-        
+
             // put api response into json format
             let genderData = JSON.parse(this.responseText);
 
@@ -123,7 +123,7 @@ function display() {
     record.classList.add("mt-3", "d-flex", "align-items-center");
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
-    if (apiData.age === null){
+    if (apiData.age === null) {
         apiData.age = "no data";
     };
 
@@ -143,7 +143,7 @@ function display() {
         record.innerHTML = " There is no data available for " + `${apiData.name}` + " in " + `${apiData.country_name};`
         record.style.color = "red";
     }
-        
+
     // show result data to user
     else {
         // insert api data in list for display
