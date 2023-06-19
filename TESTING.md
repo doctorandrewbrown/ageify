@@ -73,9 +73,9 @@ Defensive programming was manually tested with the below user acceptance testing
 | --- | --- | --- | --- | --- |---|
 | Home Page | | | | |
 | | Click submit without filling required "name" form field | Inform user field is required | Pass | ![screenshot](documentation/form-defence1.png)|The required country field is protected by being hard-coded select dropdown|
-| | Submit non existent name| Show meaningful message where both apis return no data| Pass |![screenshot](documentation/form-defence2.png)| |
-| | Submit name and country for which one api returns data but the other does not | Show partial data that is returned, and meaningful message flaging where no data is returned| Pass |![screenshot](documentation/form-defence3.png)|Example shows Ageify api has returned no data but Genderize api has. No instances of Genderize returning but Agify not returning were seen in manual testing but logic is included to handle this possibility|
-| |Submit name without capitalization | Enforce capitalization of name in results display| Pass |![screenshot](documentation/form-defence4.png)|Example shows user inputs a lowercase name which is capitalized in results|
+| | Submit non existent name| Show meaningful message where both apis return no data| Pass |![screenshot](documentation/form-defence2.png)| App logic ensures meaningful message displayed rather than null values returned from api |
+| | Submit name and country for which one api returns data but the other does not | Show partial data that is returned, and meaningful message flaging where no data is returned| Pass |![screenshot](documentation/form-defence3.png)|Example shows Ageify api has returned no data but Genderize api has. No instances of Genderize returning data but Agify not returning were seen in manual testing but logic is included to handle this possibility|
+| |Submit name without capitalization | Enforce capitalization of name in results display| Pass |![screenshot](documentation/form-defence4.png)|Example shows user inputs a lowercase name which is capitalized in results by app logic|
 |
 ## User Story Testing
 
