@@ -128,7 +128,7 @@ function display() {
     // show result data to user
     else {
         // insert api data in list for display
-        record.innerHTML = `name: ${apiData.name}; country: ${countryName}; average age: ${apiData.age}; gender: ${apiData.gender}; probability ${apiData.probability}; gender count: ${apiData.count}.`;
+        record.innerHTML = `name: ${apiData.name}; country: ${countryName}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability ${apiData.probability} (based on ${apiData.count} people).`;
     };
     // append api data to list in user interface
     const list = document.querySelector("#records");
