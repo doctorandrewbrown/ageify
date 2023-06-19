@@ -78,11 +78,15 @@ function getGenderData(cb) {
             // rename count data to gender_count to prevent overwriting when data from apis is merged
             const genderCount = genderData.count;
             apiData.gender_count = genderCount;
+
             // put gender data in results object
             apiData = {
                 ...apiData,
                 ...genderData
             };
+
+            // remove unused count property from results object
+            delete apiData.count;
 
             // callback function display() to display results on user interface
             cb();
@@ -101,11 +105,15 @@ function display() {
 
     const countryName = regionNamesInEnglish.of(apiData.country_id);
 
+    // Set value of country_name in results object
+    apiData.country_name = countryName;
+
     // create list element
     let record = document.createElement("li");
 
     // add bootstrap class to li elements for spacing results records in user interface
     // https://stackoverflow.com/questions/74132721/bootstrap-5-center-text-in-li
+
     record.classList.add("mt-3", "d-flex", "align-items-center");
 
     // check data returned by api for missing gender and age data and provide "no data" message to user
@@ -117,19 +125,25 @@ function display() {
         apiData.gender = "no data";
     };
 
+    // enforce capitalization of results data
+    let capitalized_name = apiData.name[0].toUpperCase() + apiData.name.slice(1);
+
+    // set name in results property to capitalized
+    apiData.name = capitalized_name;
+
     // if no age or gender data returned from api show error message to user
     if (apiData.age === "no data" && apiData.gender === "no data") {
 
-        record.innerHTML = " There is no data available for " + `${inputName}` + " in " + `${countryName}`
-        record.style.color = "red"
-
+        record.innerHTML = " There is no data available for " + `${apiData.name}` + " in " + `${apiData.country_id};`
+        record.style.color = "red";
     }
-
+        
     // show result data to user
     else {
         // insert api data in list for display
-        record.innerHTML = `name: ${apiData.name}; country: ${countryName}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability ${apiData.probability} (based on ${apiData.count} people).`;
+        record.innerHTML = `name: ${apiData.name}; country: ${apiData.country_name}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability ${apiData.probability} (based on ${apiData.gender_count} people).`;
     };
+
     // append api data to list in user interface
     const list = document.querySelector("#records");
     list.append(record);
