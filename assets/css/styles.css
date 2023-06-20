@@ -27,4 +27,5 @@ ul{
 #submitButton {
     background-color: #DFA67B;
     border-color: #DFA67B;
+    border-radius: 10px;
 }
