@@ -89,7 +89,6 @@ function getGenderData(cb) {
                 ...apiData,
                 ...genderData
             };
-
             // remove unused count property from results object
             delete apiData.count;
 
@@ -121,7 +120,10 @@ function display() {
     // https://stackoverflow.com/questions/74132721/bootstrap-5-center-text-in-li
 
     record.classList.add("mt-3", "d-flex", "align-items-center");
-
+    
+    // set an onclick attribute on li element to remove from results list when clicked
+    record.setAttribute("onclick", "this.remove()")
+    
     // check data returned by api for missing gender and age data and provide "no data" message to user
     if (apiData.age === null) {
         apiData.age = "no data";
@@ -147,10 +149,12 @@ function display() {
     // show result data to user
     else {
         // insert api data in list for display
-        record.innerHTML = `name: ${apiData.name}; country: ${apiData.country_name}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability ${apiData.probability} (based on ${apiData.gender_count} people).`;
+        record.innerHTML = `name: ${apiData.name}; country: ${apiData.country_name}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability of ${apiData.probability} (based on ${apiData.gender_count} people).`;
     };
 
     // append api data to list element in user interface
     const list = document.querySelector("#records");
     list.append(record);
+
+
 };
