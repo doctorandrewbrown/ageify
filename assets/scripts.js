@@ -116,13 +116,16 @@ function display() {
     // create list element
     let record = document.createElement("li");
 
-    // add bootstrap class to li elements for spacing results records in user interface
+    // add bootstrap classes to li elements for spacing results records in user interface
     // https://stackoverflow.com/questions/74132721/bootstrap-5-center-text-in-li
 
     record.classList.add("mt-3", "d-flex", "align-items-center");
     
-    // set an onclick attribute on li element to remove from results list when clicked
-    record.setAttribute("onclick", "this.remove()")
+    // add click event listener to each list element as created, to remove clicked results, "this" refers to current element
+    record.addEventListener("click", function(){this.remove()})
+
+    // alternative method setting onclick attribute directly on element shown below
+    //record.setAttribute("onclick", "this.remove()")
     
     // check data returned by api for missing gender and age data and provide "no data" message to user
     if (apiData.age === null) {
