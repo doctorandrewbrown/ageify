@@ -52,6 +52,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | Tablet (DevTools) | ![screenshot](documentation/responsive-tablet.png) | Works as expected |
 | Laptop | ![screenshot](documentation/responsive-laptop.png) | Works as expected |
 | Samsung Galaxy mobile phone (real device) | ![screenshot](documentation/responsive-galaxy.jpg) | Works as expected |
+| Samsung Galaxy mobile phone (real device) | ![screenshot](documentation/responsive-menu.jpg) | Works as expected |
 ## Lighthouse Audit
 
 
@@ -77,6 +78,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | | Submit name and country for which one api returns data but the other does not | Show partial data that is returned, and meaningful message flaging where no data is returned| Pass |![screenshot](documentation/form-defence3.png)|Example shows Ageify api has returned no data but Genderize api has. No instances of Genderize returning data but Agify not returning were seen in manual testing but logic is included to handle this possibility|
 | |Submit name without capitalization | Enforce capitalization of name in results display| Pass |![screenshot](documentation/form-defence4.png)|Example shows user inputs a lowercase name which is capitalized in results by app logic|
 |
+|
 ## User Story Testing
 
 ⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
@@ -89,18 +91,13 @@ from the respective feature.
 
 🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
-| User Story | Screenshot |
-| --- | --- |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature01.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature02.png) |
-| As a new site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature03.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature04.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature05.png) |
-| As a returning site user, I would like to ____________, so that I can ____________. | ![screenshot](documentation/feature06.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature07.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature08.png) |
-| As a site administrator, I should be able to ____________, so that I can ____________. | ![screenshot](documentation/feature09.png) |
-| repeat for all remaining user stories | x |
+| User Story | Screenshot | Comments |
+| --- | --- |----|
+| As a new site user, I would like to enter a name and country, so that I can find the average age and probable gender for the name for that country. | ![screenshot](documentation/stories1.png) |
+| As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries. | ![screenshot](documentation/feature02.png) |
+| As a new site user, I would like to have the ability to remove unwanted results from display, so that I can keep results uncluttered for recording in a screen shot for example. | ![screenshot](documentation/feature03.png) |
+| As a new user I would like to be able to find what proportion of people in the UK who are named Ashley are males?| ![screenshot](documentation/feature04.png) |
+| As a new user I would like to find the average age of people in USA who are named George? | ![screenshot](documentation/feature05.png) |
 
 ## Automated Testing
 

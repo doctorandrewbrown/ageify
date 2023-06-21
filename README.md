@@ -3,9 +3,9 @@
 # Agify and Genderize a Name!
 
 [Live site here](https://doctorandrewbrown.github.io/ageify/)
-* This app is called "Agify and Genderize a Name!". The app allows people to enter a name and country and have the average age and the gender for that name in that country to be displayed. 
-* This app allows users interact with two free api services [Ageify](https://agify.io/) and [Genderize](https://genderize.io/)
-* The app provides an HTML/CSS interface and the javascript logic needed for users to consume data provided by the two above free api services. The user enters a name and country and the app sends the user input to the two apis, processes the data returned and presents the results in an attractive interface.
+* This app is called "Agify and Genderize a Name!". The app allows people to enter a name and country and have the average age and the gender for that name in that country to be displayed in an attractive user-interface. 
+* The app allows users to interact with two free api services, [Ageify](https://agify.io/) and [Genderize](https://genderize.io/).
+* The app provides an HTML/CSS interface and the javascript logic needed for users to consume data provided by the two above api services. The user enters a name and country and the app sends the user input to the two apis, processes the data returned and presents the results in an attractive interface.
 * Additional data obtained from the apis and available through the app, is the probability of the gender given and the population sizes from which the age and gender statistics are calculated.
     
 * The site is intended for fun, for people curious about the age group into which a name falls and also the proportion of males and females having certain names. An example use might involve questions like "how many people named Ashley in the UK are male?", for instance.
@@ -13,14 +13,15 @@
 * The app allows easy comparison of multiple results presented in a list form in an attractive interface. 
 
 ## UX
-* Visual design was kept simple including only the features required to get user input, submit a query and the display results.
-* The only user controls needed were an input field for users to input any name, an input select list to choose from a hard-coded list of countries, and a submit button. This approach allows flexibility and ease of use while keeping errors to a minimum.
-* Simple clear instructions are provided in label elements attached to the input elements.
-* Ease of use is also supported by using placeholder text in input fields.
+* Design was kept simple including only the features required to get user input, submit a query, display a results list, and remove unwanted results from the display.
+* The only user controls needed were an input field for users to input any name, an input select list to choose from a hard-coded list of country options, and a submit button. This approach allows flexibility and ease of use while keeping errors to a minimum. 
+* Simple clear user instructions are provided in label elements attached to the input elements.
+*  The interface also has the feature that unwanted results can be removed from the display list by clicking. This functionality is indicated to the user via a simple  message in the interface. 
+* Ease of use is also supported by using placeholder text in input fields and use of the onfocus attribute in the name input element.
 * The submit button is clearly indicated and placed in a conventional position.
-* Visual design of the input form uses  convention of "pill" styling to provide an attractive interface.
+* Visual design of the input form uses the convention of "pill" styling to provide an attractive interface.
 * Coherent styling is used to present the results list where the same "pill" styling is used.
-* As well as in the styling and the design of user controls UX is considered in the design of the logic of the app. Javascript is used to ensure that results are presented in the most meaningful way. Cases of missing data and no data returned by the apis are handled by the logic to give the most value to users, with for example informative messages rather than "null" values returned by the apis.  
+* As well as in the styling and the design of user controls, UX is also considered in the design of the logic of the app. Javascript is used to ensure that results are presented in the most meaningful way. Cases of missing data and no data returned by the apis are handled by the logic to give the most value to users, with for example, informative messages rather than "null" values returned by the apis (for more details see [TESTING.md](TESTING.md)).  
   
 
 ### Colour Scheme
@@ -44,35 +45,16 @@ The app colour scheme was based on a palette by [Colorhunt](https://colorhunt.co
 
 ## User Stories
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+|User action | Screenshot|Comments|
+|--------|--------|--------|
+| As a new site user, I would like to enter a name and country, so that I can find the average age and probable gender for the name for that country.|||
+| As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries.|||
+| As a new site user, I would like to have the ability to remove unwanted results from display, so that I can keep results uncluttered for recording in a screen shot for example.||
+| As a new user I would like to be able to find what proportion of people in the UK who are named Ashley are males?|||
+| As a new user I would like to find the average age of people in USA who are named George?||
+|
+| 
 
-In this section, list all of your user stories for the project.
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
-
-### New Site Users
-
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-
-### Returning Site Users
-
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-
-### Site Admin
-
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
 
 ## Wireframes
 
@@ -136,31 +118,39 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 ### Existing Features
 
-- **Title for feature #1**
+- **Name input field**
+ 
+    - This feature allow a user to input any name they wish to check. Explanatory placeholder text is provided, the field is required and the onfocus attribute ensures one-click only is needed to clear the field for subsequent entries.
+    - ![screenshot](documentation/feature-name.png)
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
 
-![screenshot](documentation/feature01.png)
+- **Country input select option field**
 
-- **Title for feature #2**
+  -  This feature allows the user to select a country option from the ISO-3166-1: Alpha-2 Codes list of countries in dropdown form. This implementation removes chance of error when the user inputs a country. This field is also required.
+    - ![screenshot](documentation/feature-country.png)
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+- **Submit button**
 
-![screenshot](documentation/feature02.png)
+    - The submit button is conventionally positioned and styled and submits a query once the required fields are selected.
+    - ![screenshot](documentation/feature-button.png)
 
-- **Title for feature #3**
+- **Results record**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The individual results records show combined data returned from the two apis in a user-friendly format.
+    - ![screenshot](documentation/feature-record.png)
 
-![screenshot](documentation/feature03.png)
+- **Results list**
+    - Users can make multiple requests and the results are shown as a list. 
+    - ![screenshot](documentation/feature-results.png)
+- **"Warning" message**
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+    - Where neither api returns any data for a request, a user friendly warning is given.
+    - ![screenshot](documentation/feature-warning.png)
+- **User "tip"**
 
-Repeat as necessary for as many features as your site contains.
+    - Once a user has a list of records from their search they can remove any records they do not want by clicking on the record. Users are informed of this functionality via an unobtrusive message in the user interface.  
+    - ![screenshot](documentation/feature-tip.png)
 
-Hint: the more, the merrier!
-
-🛑🛑🛑🛑🛑 END OF NOTES (to be deleted) 🛑🛑🛑🛑🛑
 
 ### Future Features
 
@@ -193,27 +183,16 @@ Feel free to delete any unused items below as necessary.
 
 - [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
 - [CSS](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
-- [CSS :root variables](https://www.w3schools.com/css/css3_variables.asp) used for reusable styles throughout the site.
+
 - [CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp) used for an enhanced responsive layout.
-- [CSS Grid](https://www.w3schools.com/css/css_grid.asp) used for an enhanced responsive layout.
+
 - [JavaScript](https://www.javascript.com) used for user interaction on the site.
-- [Python](https://www.python.org) used as the back-end programming language.
+
 - [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [GitHub](https://github.com) used for secure online code storage.
 - [GitHub Pages](https://pages.github.com) used for hosting the deployed front-end site.
-- [Gitpod](https://gitpod.io) used as a cloud-based IDE for development.
 - [Bootstrap](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [Materialize](https://materializecss.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [Flask](https://flask.palletsprojects.com) used as the Python framework for the site.
-- [Django](https://www.djangoproject.com) used as the Python framework for the site.
-- [MongoDB](https://www.mongodb.com) used as the non-relational database management with Flask.
-- [SQLAlchemy](https://www.sqlalchemy.org) used as the relational database management with Flask.
-- [PostgreSQL](https://www.postgresql.org) used as the relational database management.
-- [ElephantSQL](https://www.elephantsql.com) used as the Postgres database.
-- [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
-- [Cloudinary](https://cloudinary.com) used for online static file storage.
-- [Stripe](https://stripe.com) used for online secure payments of ecommerce products/services.
-- [AWS S3](https://aws.amazon.com/s3) used for online static file storage.
+
 
 ## Testing
 
