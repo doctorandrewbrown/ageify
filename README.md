@@ -120,7 +120,7 @@ IMPORTANT: Remember to always include a screenshot of each individual feature!
 
 - **Name input field**
  
-    - This feature allow a user to input any name they wish to check. Explanatory placeholder text is provided, the field is required and the onfocus attribute ensures one-click only is needed to clear the field for subsequent entries.
+    - This feature allows a user to input any name they wish to check. Explanatory placeholder text is provided, the field is required and the onfocus attribute ensures one-click only is needed to clear the field for subsequent queries.
     - ![screenshot](documentation/feature-name.png)
 
 
