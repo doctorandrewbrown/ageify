@@ -84,6 +84,7 @@ function getGenderData(cb) {
             const genderCount = genderData.count;
             apiData.gender_count = genderCount;
 
+
             // put gender data in results object
             apiData = {
                 ...apiData,
@@ -116,10 +117,10 @@ function display() {
     // create list element
     let record = document.createElement("li");
 
-    // add bootstrap classes to li elements for spacing results records in user interface
+    // add  id and bootstrap class to record list items
     // https://stackoverflow.com/questions/74132721/bootstrap-5-center-text-in-li
 
-    record.classList.add("mt-3", "d-flex", "align-items-center");
+    record.classList.add("mt-3", "record");
     
     // add click event listener to each list element as created, to remove clicked results, "this" refers to current element
     record.addEventListener("click", function(){this.remove()})
@@ -152,12 +153,10 @@ function display() {
     // show result data to user
     else {
         // insert api data in list for display
-        record.innerHTML = `name: ${apiData.name}; country: ${apiData.country_name}; average age: ${apiData.age} (based on ${apiData.age_count} people); gender: ${apiData.gender}, with a probability of ${apiData.probability} (based on ${apiData.gender_count} people).`;
+        record.innerHTML = `name: ${apiData.name}, country: ${apiData.country_name}, average age: ${apiData.age}, (based on ${apiData.age_count} people) gender: ${apiData.gender}, with a probability of ${apiData.probability} (based on ${apiData.gender_count} people).`;
     };
 
     // append api data to list element in user interface
     const list = document.querySelector("#records");
     list.append(record);
-
-
 };
