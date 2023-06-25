@@ -1,32 +1,38 @@
-body{
+/* Styles for Agify and Genderize a Name app */
+
+/* site-wide styles */
+body {
     color: #000;
     background-color: #F4B183;
     box-sizing: border-box;
-    font-family:  'Barlow', sans-serif;
+    font-family: 'Barlow', sans-serif;
 }
 
+/* styles for unordered list containing results records*/
 #records {
     list-style: none;
 }
 
+/* user input styles*/
 .input {
     color: #000;
     background-color: #FFF2CC;
     border-radius: 20px;
 }
-ul {
-    padding: 0;
-}
+
+/* submit button styles */
 #submitButton {
     background-color: #DFA67B;
     border-color: #DFA67B;
     border-radius: 10px;
 }
+
+/* results records styles */
 .record {
-  background-color: #DFA67B;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+    background-color: #DFA67B;
+    border-radius: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
