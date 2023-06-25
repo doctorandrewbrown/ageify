@@ -37,10 +37,15 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![screenshot](documentation/chrome.png) | Problem with correct rendering of style in laptop view when using github pages hosting in chrome browser|
+| Chrome | ![screenshot](documentation/chrome.png) | Minor problem with correct rendering of some styles in laptop view when using github pages hosting in chrome browser|
 | Firefox | ![screenshot](documentation/firefox.png) | Works as expected |
 | Opera | ![screenshot](documentation/opera.png) | Works as expected |
+- When using the Chrome browser with the site deployed on github-pages there were some problems with the styling of the site. These problems were not observed with Firefox and Opera browsers. These problems were also not observed with local deployment. To test the effect of hosting provider on these problems the app was tested with Netlify free hosting with the site deployed from the same github repository. In the latter case of Netlify hosting, the app worked as expected in Chrome as well as other browsers. The screenshot shows the Netlify hosted site in the Chrome browser.
+  
+ ![screenshot](documentation/netlify-chrome.png)
 
+ - The Netlify hosted site can be see [here](https://ageify.netlify.app/)
+  
 ## Responsiveness
 
 
@@ -50,7 +55,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | --- | --- | --- |
 | Mobile (DevTools) | ![screenshot](documentation/responsive-mobile.png) | Works as expected |
 | Tablet (DevTools) | ![screenshot](documentation/responsive-tablet.png) | Works as expected |
-| Laptop | ![screenshot](documentation/responsive-laptop.png) | Problem with styling in chrome browser. Works as expected in Opera and Firefox |
+| Laptop | ![screenshot](documentation/responsive-laptop.png) | Problem with styling in Chrome. Works as expected in Opera and Firefox |
 | Samsung Galaxy mobile phone (real device) | ![screenshot](documentation/responsive-galaxy.jpg) | Works as expected |
 | Samsung Galaxy mobile phone (real device) | ![screenshot](documentation/responsive-menu.jpg) | Works as expected |
 ## Lighthouse Audit
@@ -93,11 +98,11 @@ from the respective feature.
 
 | User Story | Screenshot | Comments |
 | --- | --- |----|
-| As a new site user, I would like to enter a name and country, so that I can find the average age and probable gender for the name for that country. | ![screenshot](documentation/stories1.png) |
-| As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries. | ![screenshot](documentation/stories2.png) |
-| As a new site user, I would like to have the ability to remove unwanted results from display so that I can keep results uncluttered (for recording in a screen shot for example). The screenshots show the same results list before and after the result for a non-existant name removed| ![screenshot](documentation/stories3a.png) |![screenshot](documentation/stories3b.png)|
+| As a new site user, I would like to enter a name and country, so that I can find the average age and probable gender for the name for that country. | ![screenshot](documentation/stories1.png) ||
+| As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries. | ![screenshot](documentation/stories2.png) ||
+| As a new site user, I would like to have the ability to remove unwanted results from display so that I can keep results uncluttered (for recording in a screen shot for example). The screenshots show the same results list before and after the result for a non-existent name is removed| ![screenshot](documentation/stories3a.png) |![screenshot](documentation/stories3b.png)||
 | As a new user I would like to be able to find what proportion of people in the UK who are named Ashley are males?| ![screenshot](documentation/stories4.png) |
-| As a new user I would like to find the average age of people in USA who are named George? | ![screenshot](documentation/stories5.png) |
+| As a new user I would like to find the average age of people in USA who are named George? | ![screenshot](documentation/stories5.png) ||
 
 ## Automated Testing
 
