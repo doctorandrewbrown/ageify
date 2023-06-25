@@ -14,18 +14,19 @@ body{
     background-color: #FFF2CC;
     border-radius: 20px;
 }
-
-li {
-    background-color: #DFA67B;
-    border-radius: 20px;
-    padding: 10px;
-    justify-content: center;
-}
-ul{
+ul {
     padding: 0;
 }
 #submitButton {
     background-color: #DFA67B;
     border-color: #DFA67B;
     border-radius: 10px;
+}
+.record {
+  background-color: #DFA67B;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
