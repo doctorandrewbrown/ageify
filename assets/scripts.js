@@ -7,13 +7,13 @@ let inputCountry;
 // declare new empty object to receive api data
 let apiData = new Object();
 
-// wait for DOM to load before getting any element
+// wait for DOM to load before getting any element. 
 document.addEventListener("DOMContentLoaded", () => {
 
     // grab form element
     const form = document.querySelector("form");
 
-    //  listen for submit event and prevent this to allow form input data to be grabbed
+    //  listen for submit event and prevent this to allow form input data to be grabbed. https://www.w3schools.com/jsref/event_preventdefault.asp
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -21,15 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
         inputName = document.querySelector("#firstName").value;
         inputCountry = document.querySelector("#country").value;
 
-        /* start main program */
+        /* Initiate program by calling function to get data from first api. Pass in callback 
+        to call second api only when data successfully received from first */
         getAgeData(getGenderData);
     });
 });
 
 /* function definitions */
 
-// define function to call agify api
+// define function to call agify api, see https://github.com/Code-Institute-Solutions/WorkingWithExternalResources/blob/master/02-ConsumingAPIsUsingJavaScript/05-callbacks/main.js
 function getAgeData(cb) {
+
     // declare request object
     const xhttp = new XMLHttpRequest();
 
@@ -55,7 +57,8 @@ function getAgeData(cb) {
                 ...ageData
             }
 
-            // call callback function getGenderData and pass display function
+            // Invoke callback function getGenderData and pass callback function ie display function
+
             cb(display);
         };
     };
@@ -93,7 +96,9 @@ function getGenderData(cb) {
             // remove unused count property from results object
             delete apiData.count;
 
-            // callback function display() to display results on user interface
+            /* callback function display() to display results on user interface only once data successfully 
+            received from second api*/
+
             cb();
         }
     }
@@ -103,7 +108,7 @@ function getGenderData(cb) {
 
 function display() {
 
-    // create object for getting english names from country codes. See MDN
+    // create object for getting english names from country codes. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
     const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
         type: 'region'
     });
@@ -117,17 +122,18 @@ function display() {
     // create list element
     let record = document.createElement("li");
 
-    // add  id and bootstrap class to record list items
-    // https://stackoverflow.com/questions/74132721/bootstrap-5-center-text-in-li
+    // add record class and bootstrap class to record list items in user interface
 
     record.classList.add("mt-3", "record");
-    
+
     // add click event listener to each list element as created, to remove clicked results, "this" refers to current element
-    record.addEventListener("click", function(){this.remove()})
+    record.addEventListener("click", function () {
+        this.remove()
+    })
 
     // alternative method setting onclick attribute directly on element shown below
     //record.setAttribute("onclick", "this.remove()")
-    
+
     // check data returned by api for missing gender and age data and provide "no data" message to user
     if (apiData.age === null) {
         apiData.age = "no data";
