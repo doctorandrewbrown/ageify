@@ -4,8 +4,8 @@
 let inputName;
 let inputCountry;
 
-// declare new empty object to receive api data
-let apiData = new Object();
+// declare new empty object literal to receive api data
+let apiData = {};
 
 // wait for DOM to load before getting any element. 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,8 +48,8 @@ function getAgeData(cb) {
             let ageData = JSON.parse(this.responseText);
 
             // rename count data to age_count to prevent overwriting when data from apis is merged
-            const ageCount = ageData.count
-            apiData.age_count = ageCount
+            const ageCount = ageData.count;
+            apiData.age_count = ageCount;
 
             // put age data in results object
             apiData = {
@@ -60,9 +60,9 @@ function getAgeData(cb) {
             // Invoke callback function getGenderData and pass callback function ie display function
 
             cb(display);
-        };
-    };
-};
+        }
+    }
+}
 
 // define function to call genderize api
 function getGenderData(cb) {
@@ -128,8 +128,8 @@ function display() {
 
     // add click event listener to each list element as created, to remove clicked results, "this" refers to current element
     record.addEventListener("click", function () {
-        this.remove()
-    })
+        this.remove();
+    });
 
     // alternative method setting onclick attribute directly on element shown below
     //record.setAttribute("onclick", "this.remove()")
@@ -137,11 +137,11 @@ function display() {
     // check data returned by api for missing gender and age data and provide "no data" message to user
     if (apiData.age === null) {
         apiData.age = "no data";
-    };
+    }
 
     if (apiData.gender === null) {
         apiData.gender = "no data";
-    };
+    }
 
     // enforce capitalization of results data
     let capitalized_name = apiData.name[0].toUpperCase() + apiData.name.slice(1);
@@ -152,7 +152,7 @@ function display() {
     // if no age or gender data returned from api show error message to user
     if (apiData.age === "no data" && apiData.gender === "no data") {
 
-        record.innerHTML = " There is no data available for " + `${apiData.name}` + " in " + `${apiData.country_name};`
+        record.innerHTML = " There is no data available for " + `${apiData.name}` + " in " + `${apiData.country_name};`;
         record.style.color = "red";
     }
 
@@ -160,9 +160,9 @@ function display() {
     else {
         // insert api data in list for display
         record.innerHTML = `name: ${apiData.name}, country: ${apiData.country_name}, average age: ${apiData.age}, (based on ${apiData.age_count} people) gender: ${apiData.gender}, with a probability of ${apiData.probability} (based on ${apiData.gender_count} people).`;
-    };
+    }
 
     // append api data to list element in user interface
     const list = document.querySelector("#records");
     list.append(record);
-};
+}

@@ -48,7 +48,7 @@ I've tested my deployed project on multiple devices to check for responsiveness 
 | --- | --- | --- |
 | Mobile (DevTools) | ![screenshot](documentation/responsive-mobile.png) | Works as expected |
 | Tablet (DevTools) | ![screenshot](documentation/responsive-tablet.png) | Works as expected |
-| Laptop | ![screenshot](documentation/responsive-laptop.png) | Problem with styling in Chrome. Works as expected in Opera and Firefox |
+| Laptop | ![screenshot](documentation/responsive-laptop.png) | Works as expected. |
 | Samsung Galaxy mobile phone (real device) | ![screenshot](documentation/responsive-galaxy.jpg) | Works as expected |
 | Samsung Galaxy mobile phone (real device) | ![screenshot](documentation/responsive-menu.jpg) | Works as expected |
 ## Lighthouse Audit
