@@ -20,6 +20,7 @@ body {
     border-radius: 20px;
 }
 
+
 /* submit button styles */
 #submitButton {
     background-color: #DFA67B;
@@ -27,12 +28,16 @@ body {
     border-radius: 10px;
 }
 
+ul {
+    padding-inline-start: 0;
+}
+
 /* results records styles */
 .record {
     background-color: #DFA67B;
     border-radius: 20px;
-    display:flex;
+    /*display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
     padding: 10px;
 }

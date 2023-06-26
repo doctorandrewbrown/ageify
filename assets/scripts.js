@@ -124,7 +124,7 @@ function display() {
 
     // add record class and bootstrap class to record list items in user interface
 
-    record.classList.add("mt-3", "record");
+    record.classList.add("mt-3", "record", "text-center");
 
     // add click event listener to each list element as created, to remove clicked results, "this" refers to current element
     record.addEventListener("click", function () {
