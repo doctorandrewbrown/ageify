@@ -11,6 +11,7 @@ body {
 /* styles for unordered list containing results records*/
 #records {
     list-style: none;
+    padding-inline-start: 0;
 }
 
 /* user input styles*/
@@ -26,18 +27,11 @@ body {
     background-color: #DFA67B;
     border-color: #DFA67B;
     border-radius: 10px;
-}
-
-ul {
-    padding-inline-start: 0;
-}
+}    
 
 /* results records styles */
 .record {
     background-color: #DFA67B;
     border-radius: 20px;
-    /*display:flex;
-    justify-content: center;
-    align-items: center;*/
     padding: 10px;
 }
