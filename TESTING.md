@@ -34,15 +34,10 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 | Browser | Screenshot | Notes |
 | --- | --- | --- |
-| Chrome | ![screenshot](documentation/chrome.png) | Minor problem with correct rendering of some styles in laptop view when using github pages hosting in chrome browser|
+| Chrome | ![screenshot](documentation/chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/firefox.png) | Works as expected |
 | Opera | ![screenshot](documentation/opera.png) | Works as expected |
 |
-- When using the Chrome browser with the site hosted on github-pages there were some problems with the styling of the site. These problems were not observed with Firefox and Opera browsers. The problems were also not observed with localhost testing. To test the effect of hosting provider on these problems the app was tested with Netlify free hosting with the site deployed from the same github repository as the github-pages site. In the case of Netlify hosting, the app worked as expected in Chrome as well as other browsers. The screenshot shows the Netlify hosted site in the Chrome browser.
-  
- ![screenshot](documentation/netlify-chrome.png)
-
- - The Netlify hosted site can be see [here](https://ageify.netlify.app/)
   
 ## Responsiveness
 
@@ -75,7 +70,8 @@ Defensive programming was manually tested with the below user acceptance testing
 | Page | User Action | Expected Result | Pass/Fail | Screenshot |Comments|
 | --- | --- | --- | --- | --- |---|
 | Home Page | | | | |
-| | Click submit without filling required "name" form field | Inform user field is required | Pass | ![screenshot](documentation/form-defence1.png)|The required country field is protected by being hard-coded select dropdown|
+| | Click submit without filling required "name" form field | Inform user field is required | Pass | ![screenshot](documentation/form-defence1.png)|The screenshot shows the "tip" informing user field is required|
+| | Click submit without selecting county form field | country field takes a default value of "United Kingdom" and query proceeds| Pass | ![screenshot](documentation/form-defence1.png)|The screenshot shows default value of "United Kingdom" taken where user fails to make an active selection from dropdown|
 | | Submit non existent name| Show meaningful message where both apis return no data| Pass |![screenshot](documentation/form-defence2.png)| App logic ensures meaningful message displayed rather than null values returned from api |
 | | Submit name and country for which one api returns data but the other does not | Show partial data that is returned, and meaningful message flaging where no data is returned| Pass |![screenshot](documentation/form-defence3.png)|Example shows Ageify api has returned no data but Genderize api has. No instances of Genderize returning data but Agify not returning were seen in manual testing but logic is included to handle this possibility|
 | |Submit name without capitalization | Enforce capitalization of name in results display| Pass |![screenshot](documentation/form-defence4.png)|Example shows user inputs a lowercase name which is capitalized in results by app logic|
@@ -86,9 +82,9 @@ Defensive programming was manually tested with the below user acceptance testing
 | User Story | Screenshot | Comments |
 | --- | --- |----|
 | As a new site user, I would like to enter a name and country, so that I can find the average age and probable gender for the name in that country. | ![screenshot](documentation/stories1.png) |the screenshot shows the result record for the input name "Matt" and country input "UK"|
-| As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries. | ![screenshot](documentation/stories2.png) ||
+| As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries. | ![screenshot](documentation/stories2.png) | the screenshot shows a list of results records for multiple queries in a format that allows easy comparisons|
 | As a new site user, I would like to have the ability to remove unwanted results from display so that I can keep results uncluttered (for recording in a screen shot for example). The screenshots show the same results list before and after the result for a non-existent name is removed| ![screenshot](documentation/stories3a.png) |![screenshot](documentation/stories3b.png)||
-| As a new user I would like to be able to find what proportion of people in the UK who are named Ashley are males?| ![screenshot](documentation/stories4.png) | the screenshot shows that approximately 1 in 10 people in the UK named Ashley are males|
+| As a new user I would like to be able to find what proportion of people in the UK who are named Ashley are males?| ![screenshot](documentation/stories4.png) | the screenshot shows that roughly 1 in 10 people in the UK named Ashley are males|
 | As a new user I would like to find the average age of people in USA who are named George? | ![screenshot](documentation/stories5.png) | the screenshot shows that in the USA, people named George have an average age of 72 |
 
 ## Bugs

@@ -17,7 +17,8 @@
 * The only user controls needed were an input field for users to input any name, an input select list to choose from a hard-coded list of country options, and a submit button. This approach allows flexibility and ease of use while keeping errors to a minimum. 
 * Simple clear user instructions are provided in label elements attached to the input elements.
 *  The interface also has the feature that unwanted results can be removed from the display list by clicking. This functionality is indicated to the user via a simple  message in the interface. 
-* Ease of use is also supported by using placeholder text in input fields and use of the onfocus attribute in the name input element.
+* Ease of use is also supported by using placeholder text in input fields and use of the onfocus attribute in the "name" input element.
+* The required "country" input is facilitated with a hard-coded select option dropdown menu with the default value set to "United Kingdom".
 * The submit button is clearly indicated and placed in a conventional position.
 * Visual design of the input form uses the convention of "pill" styling to provide an attractive interface.
 * Coherent styling is used to present the results list where the same "pill" styling is used.
@@ -177,12 +178,17 @@ You can fork this repository by using the following steps:
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 ## Credits
+### Media 
+| Source | Location | Notes |
+| --- | --- | --- |
+| [Favicon.io](https://favicon.io/favicon-generator/) | index.html | used to generate website favicon  |
+
 ### Content
 
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Markdown Builder](https://traveltimn.github.io/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
-| [W3Schools](https://traveltimn.github.io/markdown-builder) | whole site | reference for html, css and javascript |
+| [W3Schools](https://www.w3schools.com/) | whole site | reference for html, css and javascript |
 | [Markdown Guide](https://www.markdownguide.org/cheat-sheet/) | README and TESTING | syntax guide for writing Markdown files |
 | [Code Institute](https://github.com/Code-Institute-Solutions/WorkingWithExternalResources/blob/master/02-ConsumingAPIsUsingJavaScript/01-xhr/main.js) | scripts.js | xmlHttpRequest method code snippet. Notes and examples of use of callback functions to make asynchronous api calls |
 | [Freeformatter.com]( https://www.freeformatter.com/iso-country-list-html-select.html) | index.html | ISO-3166-1: Alpha-2 Codes html snippet for country select dropdown menu|
