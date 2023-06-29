@@ -88,7 +88,7 @@ function getGenderData(cb) {
             apiData.gender_count = genderCount;
 
 
-            // put gender data in results object
+            // put gender data in results object using spread operator
             apiData = {
                 ...apiData,
                 ...genderData
