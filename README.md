@@ -53,8 +53,7 @@ The app colour scheme was based on a palette by [Colorhunt](https://colorhunt.co
 | As a new site user, I would like to have the ability to remove unwanted results from display, so that I can keep results uncluttered for recording in a screen shot for example.
 | As a new user I would like to be able to find what proportion of people in the UK who are named Ashley are males?
 | As a new user I would like to find the average age of people in USA who are named George?||
-|
-| 
+
 
 
 ## Wireframes
@@ -197,8 +196,6 @@ You can fork this repository by using the following steps:
 | [agify api](https://agify.io/) | scripts.js| data for age statistics for a user input name|
 | [genderize api](https://genderize.io/) | scripts.js| data for gender statistics for a user input name |
 | [Stack Overflow](https://stackoverflow.com/questions/45782973/text-align-center-in-li-element) | styles.css| discussion on use of flex-box to centre list item contents |
-|
-|
 
 ### Acknowledgements
 

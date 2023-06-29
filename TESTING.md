@@ -9,7 +9,7 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Page | W3C URL | Screenshot | |
 | --- | --- | --- | --- |
 | Home | [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdoctorandrewbrown.github.io%2Fageify%2F) | ![screenshot](documentation/html-checker-result.png) | 
-|
+
 
 ### CSS
 
@@ -26,7 +26,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | File | Screenshot | Notes |
 | --- | --- | --- |
 | scripts.js | ![screenshot](documentation/jshint-errors.png) | Missing () from new object constructor and missing semicolons |
- |
+ 
 
 ## Browser Compatibility
 
@@ -37,7 +37,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Chrome | ![screenshot](documentation/chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/firefox.png) | Works as expected |
 | Opera | ![screenshot](documentation/opera.png) | Works as expected |
-|
+
   
 ## Responsiveness
 
@@ -61,7 +61,6 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | --- | --- | --- | --- |
 | Home | Mobile | ![screenshot](documentation/lighthouse-mobile.png) | Some minor warnings |
 | Home | Desktop | ![screenshot](documentation/lighthouse-desktop.png) | Some minor warnings |
-|
 
 ## Defensive Programming
 
@@ -75,8 +74,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | | Submit non existent name| Show meaningful message where both apis return no data| Pass |![screenshot](documentation/form-defence2.png)| App logic ensures meaningful message displayed rather than null values returned from api |
 | | Submit name and country for which one api returns data but the other does not | Show partial data that is returned, and meaningful message flaging where no data is returned| Pass |![screenshot](documentation/form-defence3.png)|Example shows Ageify api has returned no data but Genderize api has. No instances of Genderize returning data but Agify not returning were seen in manual testing but logic is included to handle this possibility|
 | |Submit name without capitalization | Enforce capitalization of name in results display| Pass |![screenshot](documentation/form-defence4.png)|Example shows user inputs a lowercase name which is capitalized in results by app logic|
-|
-|
+
 ## User Story Testing
 
 | User Story | Screenshot | Comments |
