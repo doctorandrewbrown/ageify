@@ -1,11 +1,4 @@
 /* jshint esversion: 11 */
-// declare variables for user input
-
-let inputName;
-let inputCountry;
-
-// declare new empty object literal to receive api data
-let apiData = {};
 
 // wait for DOM to load before getting any element. 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,19 +11,24 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
 
         // get user input from form once DOM loaded and submit button clicked
-        inputName = document.querySelector("#firstName").value;
-        inputCountry = document.querySelector("#country").value;
+        let inputName = document.querySelector("#firstName").value;
+        let inputCountry = document.querySelector("#country").value;
 
         /* Initiate program by calling function to get data from first api. Pass in callback 
         to call second api only when data successfully received from first */
-        getAgeData(getGenderData);
+        getAgeData(getGenderData, inputCountry, inputName);
     });
 });
 
 /* function definitions */
 
-// define function to call agify api, see https://github.com/Code-Institute-Solutions/WorkingWithExternalResources/blob/master/02-ConsumingAPIsUsingJavaScript/05-callbacks/main.js
-function getAgeData(cb) {
+/* define function to call agify api, 
+ * see https://github.com/Code-Institute-Solutions/WorkingWithExternalResources/blob/master/02-ConsumingAPIsUsingJavaScript/05-callbacks/main.js
+ */
+function getAgeData(cb, inputCountry, inputName) {
+
+    // declare object to put data from api into
+    let apiData = {};
 
     // declare request object
     const xhttp = new XMLHttpRequest();
@@ -55,17 +53,17 @@ function getAgeData(cb) {
             apiData = {
                 ...apiData,
                 ...ageData
-            }
+            };
 
             // Invoke callback function getGenderData and pass callback function ie display function
 
-            cb(display);
+            cb(display, inputCountry, inputName, apiData);
         }
-    }
+    };
 }
 
 // define function to call genderize api
-function getGenderData(cb) {
+function getGenderData(cb, inputCountry, inputName, apiData) {
 
     // declare request object
     const xhttp = new XMLHttpRequest();
@@ -98,22 +96,22 @@ function getGenderData(cb) {
 
             /* callback function display() to display results on user interface only once data successfully 
             received from second api*/
-
-            cb();
+        
+            cb(inputCountry, inputName, apiData);
         }
-    }
+    };
 }
 
 // define function to display results on user interface
 
-function display() {
+function display(inputCountry, inputName, apiData) {
 
     // create object for getting english names from country codes. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
     const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
-        type: 'region'
+        type: 'region' 
     });
 
-    // get english country name
+    // get full country name in english
     const countryName = regionNamesInEnglish.of(apiData.country_id);
 
     // Set value of country_name in results object
@@ -122,7 +120,7 @@ function display() {
     // create list element
     let record = document.createElement("li");
 
-    // add record class and bootstrap class to record list items in user interface
+    // add record class and bootstrap classes to record list items in user interface
 
     record.classList.add("mt-3", "record", "text-center");
 
