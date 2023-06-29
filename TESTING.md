@@ -78,7 +78,7 @@ Defensive programming was manually tested with the below user acceptance testing
 ## User Story Testing
 
 | User Story | Screenshot | Comments |
-| --- | --- |----|
+| --- | --- |----| 
 | As a new site user, I would like to enter a name and country, so that I can find the average age and probable gender for the name in that country. | ![screenshot](documentation/stories1.png) |the screenshot shows the result record for the input name "Matt" and country input "UK"|
 | As a new site user, I would like to have results for multiple requests shown as a list, so that I can make comparisons e.g. same name in different countries. | ![screenshot](documentation/stories2.png) | the screenshot shows a list of results records for multiple queries in a format that allows easy comparisons|
 | As a new site user, I would like to have the ability to remove unwanted results from display so that I can keep results uncluttered (for recording in a screen shot for example). The screenshots show the same results list before and after the result for a non-existent name is removed| ![screenshot](documentation/stories3a.png) |![screenshot](documentation/stories3b.png)||

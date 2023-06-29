@@ -58,17 +58,11 @@ The app colour scheme was based on a palette by [Colorhunt](https://colorhunt.co
 
 ## Wireframes
 
-
-
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-# TODO
-### Home Page Wireframes
+### Wireframes
+- [mobile](documentation/wireframes/mobile-wireframe.jpg) 
+- [tablet/desktop](documentation/wireframes/laptop-wireframe.jpg) 
 
-| Size | Screenshot |
-| --- | --- |
-| Mobile | ![screenshot](documentation/wireframes/mobile-home.png) |
-| Tablet | ![screenshot](documentation/wireframes/tablet-home.png) |
-| Desktop | ![screenshot](documentation/wireframes/desktop-home.png) |
 
 
 ## Features
@@ -109,10 +103,6 @@ To follow best practice, wireframes were developed for mobile, tablet, and deskt
     - ![screenshot](documentation/feature-tip.png)
 
 
-### Future Features
-
-TODO
-
 ## Tools & Technologies Used
 
 - [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
@@ -125,7 +115,6 @@ TODO
 - [Git](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
 - [GitHub](https://github.com) used for secure online code storage.
 - [GitHub Pages](https://pages.github.com) used for hosting the deployed front-end site.
-- [Netlify](https://www.netlify.com/) used for hosting the deployed front-end site.
 - [Bootstrap](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
 - [VSCode](https://code.visualstudio.com/) IDE for development work.
 
