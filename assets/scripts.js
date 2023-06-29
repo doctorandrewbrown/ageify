@@ -95,8 +95,8 @@ function getGenderData(cb, inputCountry, inputName, apiData) {
             delete apiData.count;
 
             /* callback function display() to display results on user interface only once data successfully 
-            received from second api*/
-        
+            received from second api thus handling possible problems with asynchronous responses from apis*/
+
             cb(inputCountry, inputName, apiData);
         }
     };
@@ -108,7 +108,7 @@ function display(inputCountry, inputName, apiData) {
 
     // create object for getting english names from country codes. See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
     const regionNamesInEnglish = new Intl.DisplayNames(['en'], {
-        type: 'region' 
+        type: 'region'
     });
 
     // get full country name in english
