@@ -1,4 +1,4 @@
-/* jshint esversion: 11 */
+/* Ageify App*/
 
 // wait for DOM to load before getting any element. 
 document.addEventListener("DOMContentLoaded", () => {
