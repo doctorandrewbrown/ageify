@@ -170,6 +170,8 @@ You can fork this repository by using the following steps:
 | Source | Location | Notes |
 | --- | --- | --- |
 | [Favicon.io](https://favicon.io/favicon-generator/) | index.html | used to generate website favicon  |
+| [Pexels](https://www.pexels.com/photo/bird-s-eye-view-of-group-of-people-1299086/) | index.html | homepage background image  |
+
 
 ### Content
 
