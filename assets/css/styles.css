@@ -11,7 +11,7 @@ body {
    /* background-color: #F4B183;*/
     box-sizing: border-box;
     font-family: 'Barlow', sans-serif;
-    background-image: url(../../crowd-scaled-360w.webp);
+    background-image: url(../images/crowd-scaled-360w.webp);
     /*background-position: center;*/
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,3 +44,17 @@ body {
     border-radius: 20px;
     padding: 10px;
 }
+  
+/* For width 576px and larger: */
+@media only screen and (min-width: 576px) {
+body {
+      background-image: url('../images/crowd-scaled-768w.webp');
+    }
+}
+
+/* For width 992px and larger: */
+@media only screen and (min-width: 992px) {
+    body {
+          background-image: url('../images/crowd-scaled-1960w.webp');
+        }
+    }
