@@ -122,7 +122,7 @@ function display(inputCountry, inputName, apiData) {
 
     // add record class and bootstrap classes to record list items in user interface
 
-    record.classList.add("mt-3", "record", "text-center");
+    record.classList.add("mt-3", "record", "mx-auto");
 
     // add click event listener to each list element as created, to remove clicked results, "this" refers to current element
     record.addEventListener("click", function () {
