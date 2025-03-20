@@ -2,8 +2,13 @@
 
 # Agify and Genderize a Name!
 ## Code Institute Client-side Javascript portfolio project
-![screenshot](documentation/ageify-home-page-min.png)
 [Live site here](https://doctorandrewbrown.github.io/ageify/)
+### Technologies
+- Javascript
+- Bootstrap
+- Github Pages
+![screenshot](documentation/ageify-home-page-min.png)
+
 * This app is called "Agify and Genderize a Name!". The app allows people to enter a name and country and have the average age and the gender for that name in that country to be displayed in an attractive user-interface. 
 * The app allows users to interact with two free api services, [Ageify](https://agify.io/) and [Genderize](https://genderize.io/).
 * The app provides an HTML/CSS interface and the javascript logic needed for users to consume data provided by the two above api services. The user enters a name and country and the app sends the user input to the two apis, processes the data returned and presents the results in an attractive interface.
